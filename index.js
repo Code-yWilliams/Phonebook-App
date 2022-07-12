@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
-require('dotenv').config();
+if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+  require('dotenv').config();
+}
+console.log(process.env.NODE_ENV)
 
 // IMPORT MONGODB MODEL(S)
 const ContactModel = require('./models/note');
