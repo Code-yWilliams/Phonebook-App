@@ -69,7 +69,6 @@ app.post('/api/contacts', (req, res, next) => {
   newContact.save()
             .then(result => {
               res.json(result);
-              mongoose.connection.close();
             })
             .catch(err => next(err));
 });

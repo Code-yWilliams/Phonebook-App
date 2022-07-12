@@ -6,6 +6,13 @@ mongoose.connect(DB_URI)
         .then(res => console.log('Connected to MongoDB'))
         .catch(err => console.log('Error connecting to MongoDB:', err.message));
 
+process.on('SIGINT', function() {
+  mongoose.connection.close(function () {
+    console.log('Mongoose disconnected on app termination');
+    process.exit(0);
+  });
+});
+
 const contactSchema = new mongoose.Schema({
   firstName: {
     type: String,
