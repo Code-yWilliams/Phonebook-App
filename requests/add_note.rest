@@ -2,7 +2,7 @@ POST http://localhost:3001/api/contacts
 content-type: application/json
 
 {
-  "firstName": "cody",
+  "firstName": "Garry",
   "lastName": "williams",
-  "phoneNumber": "666-666-6666"
+  "phoneNumber": "123-456-7890"
 }
