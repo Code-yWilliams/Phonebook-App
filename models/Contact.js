@@ -1,18 +1,6 @@
+const config = require('../utils/config');
+const logger = require('../utils/logger');
 const mongoose = require('mongoose');
-const DB_URI = process.env.MONGO_DB_URI;
-console.log(DB_URI);
-
-console.log('Connecting to MongoDB...');
-mongoose.connect(DB_URI)
-        .then(res => console.log('Connected to MongoDB'))
-        .catch(err => console.log('Error connecting to MongoDB:', err.message));
-
-process.on('SIGINT', function() {
-  mongoose.connection.close(function () {
-    console.log('Mongoose disconnected on app termination');
-    process.exit(0);
-  });
-});
 
 const contactSchema = new mongoose.Schema({
   firstName: {
