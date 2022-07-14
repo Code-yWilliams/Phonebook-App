@@ -5,10 +5,6 @@ const loginRouter = require('express').Router();
 const User = require('../models/User');
 const { response } = require('express');
 
-const nMinutes = (n) => {
-  return 60 * n;
-}
-
 loginRouter.post('/', async (req, res) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username });
@@ -24,7 +20,7 @@ loginRouter.post('/', async (req, res) => {
     userId: user._id
   }
 
-  const token = jwt.sign(userForToken, SECRET, { espiresIn: nMinutes(30) }); // token valid for 30 minutes
+  const token = jwt.sign(userForToken, SECRET, { expiresIn: '1d' }); // token valid for 30 minutes
   res.status(200)
      .send({ token, username: user.username, name: user.name });
 });
