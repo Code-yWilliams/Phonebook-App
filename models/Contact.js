@@ -13,6 +13,11 @@ const contactSchema = new mongoose.Schema({
     type: String,
     minLength: 1,
     required: true
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   }
 });
 

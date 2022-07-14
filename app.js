@@ -2,9 +2,12 @@ const config = require('./utils/config');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');
 const express = require('express');
+require('express-async-errors'); // handles async function errors; no need for try/catch
 const app = express();
 const cors = require('cors');
 const middleware = require('./utils/middleware');
+const loginRouter = require('./controllers/login');
+const usersRouter = require('./controllers/users');
 const contactsRouter = require('./controllers/contacts');
 const morgan = require('morgan');
 
@@ -26,6 +29,8 @@ app.use(express.json()); // parse HTTP request bodies into JSON, attach to body 
 morgan.token('body', function(req, _res) { return JSON.stringify(req.body) });
 app.use(morgan(':method :url HTTP/:http-version :body')); // log all http request info to std out
 
+app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter);
 app.use('/api/contacts', contactsRouter);
 
 app.use(middleware.unknownRoute);

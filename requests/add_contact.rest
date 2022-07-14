@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/contacts 
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdhcmJlYXIiLCJ1c2VySWQiOiI2MmQwNGJhMTBjMzBlOGM4YWNiM2I1MDIiLCJpYXQiOjE2NTc4MTgyOTB9.Fa6q5lHeUyX1Wz5WZpERdR86xBexgd85F5qLjDN02To
+
+{
+  "firstName": "Bobby",
+  "lastName": "Lucas",
+  "phoneNumber": "DEB E",
+  "userId": "62cf5444c46d1dc313ba7eb7"
+}
